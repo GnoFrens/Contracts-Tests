@@ -1,4 +1,4 @@
-var frensToken = artifacts.require("./FRENS.sol");
+var frensToken = artifacts.require("FrensToken");
 
 module.exports = function(deployer) {
   deployer.deploy(frensToken);
