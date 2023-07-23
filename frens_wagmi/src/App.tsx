@@ -1,28 +1,32 @@
-import { useAccount } from 'wagmi'
+import { useContractWrite, usePrepareContractWrite } from 'wagmi'
+import { abi } from "./ABI"
+import { WagmiConfig, createConfig, configureChains } from 'wagmi'
+import { gnosisChiado } from 'wagmi/chains'
+import { infuraProvider } from 'wagmi/providers/infura'
+ 
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [gnosisChiado],
+  [infuraProvider({ apiKey: 'yourInfuraApiKey' })],
+)
 
-import { Account } from './components/Account'
-import { Connect } from './components/Connect'
-import { MintNFT } from './components/MintNFT'
-import { NetworkSwitcher } from './components/NetworkSwitcher'
+const config = createConfig({
+  autoConnect: true,
+  publicClient,
+  webSocketPublicClient,
+})
 
-export function App() {
-  const { isConnected } = useAccount()
-
+function App() {
+  const { data, isLoading, isSuccess, write } = useContractWrite({
+    address: '0xecb504d39723b0be0e3a9aa33d646642d1051ee1',
+    abi: abi,
+    functionName: 'feed',
+  })
+ 
   return (
-    <>
-      <h1>wagmi + Next.js + @wagmi/cli (Etherscan)</h1>
-
-      <Connect />
-
-      {isConnected && (
-        <>
-          <Account />
-          <hr />
-          <MintNFT />
-          <hr />
-          <NetworkSwitcher />
-        </>
-      )}
-    </>
+    <div>
+      <button onClick={() => write()}>Feed</button>
+      {isLoading && <div>Check Wallet</div>}
+      {isSuccess && <div>Transaction: {JSON.stringify(data)}</div>}
+    </div>
   )
 }
