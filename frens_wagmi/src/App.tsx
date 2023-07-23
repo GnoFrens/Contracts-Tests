@@ -19,7 +19,9 @@ function App() {
   const { data, isLoading, isSuccess, write } = useContractWrite({
     address: '0xecb504d39723b0be0e3a9aa33d646642d1051ee1',
     abi: abi,
-    functionName: 'feed',
+    functionName: 'mint',
+    args: ["0x0bBC0CE97721aE44caBDe8cc34Ef05be14717c0E", 1],
+    account: '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266'
   })
  
   return (
