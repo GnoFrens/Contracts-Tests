@@ -8,7 +8,7 @@ module.exports = {
   networks: {
     live: {
       provider: function () {
-        return new HDWalletProvider([privateKey], 'https://rpc.chiado.gnosis.gateway.fm')
+        return new HDWalletProvider([privateKey], 'https://rpc.chiadochain.net')
       },
       network_id: 10200,
       /*host: "178.25.19.88", // Random IP for example purposes (do not use)
