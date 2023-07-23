@@ -1,5 +1,5 @@
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
-import { abi } from "./ABI"
+import { abi } from "../../frens_test_wagmi/src/ABI"
 import { WagmiConfig, createConfig, configureChains } from 'wagmi'
 import { gnosisChiado } from 'wagmi/chains'
 import { infuraProvider } from 'wagmi/providers/infura'
