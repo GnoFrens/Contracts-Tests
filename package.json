@@ -1,7 +1,7 @@
 {
-  "name": "Express-Box",
+  "name": "ETHPARIS2023",
   "version": "0.0.2",
-  "description": "Make API-Endpoints for Ethereum BlockChain",
+  "description": "ETHPARIS2023",
   "scripts": {
     "start": "nodemon server.js",
     "test": "truffle test test/*"
@@ -24,6 +24,7 @@
     "web3": "^0.20.0"
   },
   "dependencies": {
+    "@airstack/airstack-react": "^0.4.5",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
